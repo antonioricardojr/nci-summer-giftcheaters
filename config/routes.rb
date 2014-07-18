@@ -1,4 +1,6 @@
 NciSummerGiftcheaters::Application.routes.draw do
+
+  root :to => 'layouts#application'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
