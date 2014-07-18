@@ -1,46 +1,49 @@
 <div class="navbar navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
-        <a class="brand" href="#">GiftCheaters</a>
-      </div>
+  <div class="navbar-inner">
+    <div class="container">
+      <a class="brand" href="#">GiftCheaters</a>
     </div>
   </div>
+</div>
 
-  <div class="container-narrow">
+<div class="container-narrow">
 
-    <div class="row">
-      <div class="hero-unit">
-        <h1>GiftCheaters</h1>
-        <p>The easiest way to choose gifts for your friends using their Facebook interests.</p>
-		<p>
-			<button class="btn btn-facebook" onClick="FB.login()"><i class="fa fa-facebook"></i> | Connect with Facebook
-			</button >
+  <div class="row">
+    <div class="hero-unit">
+      <h1>GiftCheaters</h1>
+      <p>The easiest way to choose gifts for your friends using their Facebook interests.</p>
+      <p>
 
-      <script>
-      window.fbAsyncInit = function() {
-        FB.init({
-          appId      : '309428675901394',
-          xfbml      : true,
-          version    : 'v2.0'
-        });
-      };
+      <form method="get" action="/home" >
+         <button class="btn btn-facebook" onClick="FB.login()"><i class="fa fa-facebook"></i> | Connect with Facebook
+         </button >
+       </form>
 
-      (function(d, s, id){
+       <script>
+        window.fbAsyncInit = function() {
+          FB.init({
+            appId      : '309428675901394',
+            xfbml      : true,
+            version    : 'v2.0'
+          });
+        };
+
+        (function(d, s, id){
          var js, fjs = d.getElementsByTagName(s)[0];
          if (d.getElementById(id)) {return;}
          js = d.createElement(s); js.id = id;
          js.src = "//connect.facebook.net/en_US/sdk.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
-    </script>
+      </script>
 
 
-        </p>
-      </div>
-    </div>
+    </p>
+  </div>
+</div>
 
-    <footer class="footer">
-      <p>&copy; {% now "Y" %} <a href="http://giftcheaters-ncisummer.appspot.com/">GiftCheaters</a>, All Rights Reserved</p>
-    </footer>
+<footer class="footer">
+  <p>&copy; {% now "Y" %} <a href="http://giftcheaters-ncisummer.appspot.com/">GiftCheaters</a>, All Rights Reserved</p>
+</footer>
 
   </div> <!-- /container -->
