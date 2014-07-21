@@ -1,11 +1,26 @@
 NciSummerGiftcheaters::Application.routes.draw do
 
+  get "sessions/create"
+
+  get "sessions/destroy"
+
+  get "user/show"
+
   get "home/index"  
 
   match "/home/" => "home#user"
 
 
-  root :to => "home#index"
+  get 'auth/:provider/callback', to: 'sessions#create'
+  get 'auth/failure', to: redirect('/')
+  get 'signout', to: 'sessions#destroy', as: 'signout'
+
+    resources :sessions, only: [:create, :destroy]
+    resource :user, only: [:show]
+
+    root to: "user#show"
+
+  #root :to => "home#index"
 
 
 
