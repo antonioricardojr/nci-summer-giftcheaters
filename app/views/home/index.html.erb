@@ -15,30 +15,8 @@
       <p>
 
       
-         <button class="btn btn-facebook" onClick="FB.login()"><i class="fa fa-facebook"></i> | Connect with Facebook
+         <button class="btn btn-facebook" onClick="appLogin()"><i class="fa fa-facebook"></i> | Connect with Facebook
          </button >
-       
-
-       <script>
-        window.fbAsyncInit = function() {
-          FB.init({
-            appId      : '309428675901394',
-            xfbml      : true,
-            version    : 'v2.0'
-          });
-        };
-
-        (function(d, s, id){
-         var js, fjs = d.getElementsByTagName(s)[0];
-         if (d.getElementById(id)) {return;}
-         js = d.createElement(s); js.id = id;
-         js.src = "//connect.facebook.net/en_US/sdk.js";
-         fjs.parentNode.insertBefore(js, fjs);
-       }(document, 'script', 'facebook-jssdk'));
-
-        
-        
-      </script>
 
 
     </p>
@@ -49,4 +27,6 @@
   <p>&copy; {% now "Y" %} <a href="http://giftcheaters-ncisummer.appspot.com/">GiftCheaters</a>, All Rights Reserved</p>
 </footer>
 
+
+  
   </div> <!-- /container -->
