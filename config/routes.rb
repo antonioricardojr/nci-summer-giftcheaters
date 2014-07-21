@@ -2,9 +2,6 @@ NciSummerGiftcheaters::Application.routes.draw do
 
   get "home/index"  
 
-  match "/home/" => "home#user"
-
-
   root :to => "home#index"
 
   match "/login" => "home#login"
