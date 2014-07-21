@@ -9,14 +9,6 @@ class HomeController < ApplicationController
         # auth established, now do a graph call:
         @api = Koala::Facebook::API.new(session[:access_token])
  
-        # begin
-        #     @user_profile = @api.get_object("me")
-        # rescue Exception=>ex
-        #     puts ex.message
-        #     #if user is not logged in and an exception is caught, redirect to the page where logging in is requested
-            
-        #      return
-        # end
  
         respond_to do |format|
          format.html {   }    
@@ -26,7 +18,7 @@ class HomeController < ApplicationController
     #########################################################
      
     def login
-        session[:oauth] = Koala::Facebook::OAuth.new(APP_ID, APP_SECRET, SITE_URL + '/user')
+        session[:oauth] = Koala::Facebook::OAuth.new(APP_ID, APP_SECRET, SITE_URL + '/')
         @auth_url =  session[:oauth].url_for_oauth_code(:permissions=>"read_stream publish_stream")  
  
         redirect_to @auth_url
