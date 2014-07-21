@@ -6,6 +6,7 @@ root :to => 'home#index'
 match '/index' => 'home#index'
 match '/login' => 'home#login'
 
+match '/home' => 'home#user'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
