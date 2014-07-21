@@ -14,10 +14,10 @@
       <p>The easiest way to choose gifts for your friends using their Facebook interests.</p>
       <p>
 
-      <form method="get" action="/home" >
+      
          <button class="btn btn-facebook" onClick="FB.login()"><i class="fa fa-facebook"></i> | Connect with Facebook
          </button >
-       </form>
+       
 
        <script>
         window.fbAsyncInit = function() {
@@ -35,6 +35,9 @@
          js.src = "//connect.facebook.net/en_US/sdk.js";
          fjs.parentNode.insertBefore(js, fjs);
        }(document, 'script', 'facebook-jssdk'));
+
+        
+        
       </script>
 
 
