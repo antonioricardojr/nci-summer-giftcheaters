@@ -2,7 +2,9 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.13'
 gem 'amazon-ecs', '~> 2.2.5'
-gem 'koala', "~> 1.10.0rc"
+
+
+gem 'koala', '1.3.0'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'

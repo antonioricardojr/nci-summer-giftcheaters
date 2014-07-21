@@ -7,6 +7,9 @@ NciSummerGiftcheaters::Application.routes.draw do
 
   root :to => "home#index"
 
+ 
+match '/login' => 'home#login'
+
 
 
   # The priority is based upon order of creation:
