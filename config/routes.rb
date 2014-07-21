@@ -1,8 +1,6 @@
 NciSummerGiftcheaters::Application.routes.draw do
 
-  get "home/index"
-
-  get "home/user"  
+  get "home/index"  
 
   match "/home/" => "home#user"
 
