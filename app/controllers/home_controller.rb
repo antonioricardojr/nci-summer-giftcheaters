@@ -10,8 +10,7 @@ class HomeController < ApplicationController
         @api = Koala::Facebook::API.new(session[:access_token])
  
  
-        respond_to do |format|
-         format.html {   }    
+         
         end
     end
      
