@@ -1,8 +1,10 @@
 class HomeController < ApplicationController
 
 
+    def index
+    end
   
-  def index   
+  def user   
         if params[:code]
             # acknowledge code and get access token from FB
             session[:access_token] = session[:oauth].get_access_token(params[:code])
