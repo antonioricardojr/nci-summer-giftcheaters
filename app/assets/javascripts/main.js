@@ -8,7 +8,7 @@ function statusChangeCallback(response) {
 	if (response.status === 'connected') {
 	  // Logged into your app and Facebook.
 	  //testAPI();
-	  window.location.href ='home/user';
+	  window.location.href ='/home';
 	} else {
 		// The person is logged into Facebook, but not your app, 
 		//so the status would be not_authorized OR
