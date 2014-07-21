@@ -23,6 +23,16 @@
   </div>
 </div>
 
+<div>
+  <% @res = Amazon::Ecs.item_search('Arctic Monkeys', :country => 'uk') %>
+  <%= @res.total_pages  %>
+
+  <% @res.items.each do |item| %>
+   <p> <%= item.get('ItemAttributes/Title') %> </p>
+  <% end %>
+
+</div>
+
 <footer class="footer">
   <p>&copy; {% now "Y" %} <a href="http://giftcheaters-ncisummer.appspot.com/">GiftCheaters</a>, All Rights Reserved</p>
 </footer>

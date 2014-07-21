@@ -1,11 +1,17 @@
 require 'koala'
+require 'amazon/ecs'
 
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-@oauth = Koala::Facebook::OAuth.new(309428675901394, "bb93a431aa2c57f02f93b6a3a0d7c38b", "/home/user")
 
- 
+
+Amazon::Ecs.configure do |options|
+  options[:associate_tag] = 'giftch-21'
+  options[:AWS_access_key_id] = 'AKIAJRKRRNB5DXRVZYWQ'
+  options[:AWS_secret_key] = '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'
+end
+
 
 
 
