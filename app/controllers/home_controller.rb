@@ -1,4 +1,6 @@
 class HomeController < ApplicationController
+
+
   
   def index   
         if params[:code]
@@ -9,8 +11,16 @@ class HomeController < ApplicationController
         # auth established, now do a graph call:
         @api = Koala::Facebook::API.new(session[:access_token])
  
+        begin
+            @user_profile = @api.get_object("me")
+        rescue Exception=>ex
+            puts ex.message
+            #if user is not logged in and an exception is caught, redirect to the page where logging in is requested
+            redirect_to '/login' and return
+        end
  
-         
+        respond_to do |format|
+         format.html {   }    
         end
     end
      
@@ -25,7 +35,5 @@ class HomeController < ApplicationController
      
     #########################################################
 
-  def user
-  end
 
 end
