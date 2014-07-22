@@ -1,0 +1,139 @@
+body{
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+body{
+  margin: 0;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333333;
+
+}
+body{
+  display: block;
+  background-color: #b0c4de;
+}
+p {
+  display: block;
+  -webkit-margin-before: 1em;
+  -webkit-margin-after: 1em;
+  -webkit-margin-start: 0px;
+  -webkit-margin-end: 0px;
+}
+/*search button for select friend page*/
+.btn1{
+  color: #FFFFFF;
+  background: #b0c4de;
+  border: 2px outset #FFFFFF;
+}
+.hero-unit {
+  padding: 60px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 30px;
+  color: inherit;
+  background-color: #eeeeee;
+
+}
+/*container for welcome page with image not attached*/
+.hero-unit1 {
+  padding: 60px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 200;
+  line-height: 30px;
+  color: inherit;
+  background-color: #eeeeee;
+  background-image:url("gift.jpg");
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  background-position:auto; 
+
+}
+li {
+  float: right;
+}
+
+/* Custom container */
+.container-narrow {
+  margin: 0 auto; 
+  max-width: 700px;
+}
+.container-narrow > hr {
+  margin: 30px 0;
+}
+
+/* Main marketing message and sign up button */
+.jumbotron {
+  margin: 60px 0;
+  text-align: center;
+}
+.jumbotron h1 {
+  font-size: 72px;
+  line-height: 1;
+}
+
+
+
+	   /* Featurettes
+     ------------------------- */
+
+     .featurette-divider {
+      margin: 80px 0; /* Space out the Bootstrap <hr> more */
+    }
+    .featurette {
+      padding-top: 120px; /* Vertically center images part 1: add padding above and below text. */
+      overflow: hidden; /* Vertically center images part 2: clear their floats. */
+    }
+    .featurette-image {
+      margin-top: -120px; /* Vertically center images part 3: negative margin up the image the same amount of the padding to center it. */
+    }
+
+    /* Give some space on the sides of the floated elements so text doesn't run right into it. */
+    .featurette-image.pull-left {
+      margin-right: 40px;
+    }
+    .featurette-image.pull-right {
+      margin-left: 40px;
+    }
+
+    /* Thin out the marketing headings */
+    .featurette-heading {
+      font-size: 50px;
+      font-weight: 300;
+      line-height: 1;
+      letter-spacing: -1px;
+    }
+    .jumbotron .btn {
+      font-size: 21px;
+      padding: 14px 24px;
+    }
+    /*navigation bar*/
+    #navigation {
+      position:relative;
+      top:0;
+      left:0;
+      right:0;
+      bottom:0;
+      width:100%;
+      background-color:#b0c4de;
+      color:black;
+      height:35px;
+      text-align:left;
+      padding-top:15px;
+    }
+    #navigation a {
+      font-size:14px;
+      padding-left:15px;
+      padding-right:15px;
+      color:black;
+      text-decoration:none;
+    }
+    #navigation a:hover {
+      color:white;
+    }
+    .footer{
+      text-align:center;
+    }

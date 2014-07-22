@@ -5,6 +5,8 @@ NciSummerGiftcheaters::Application.routes.draw do
   
   match '/index' => 'home#index'
   match '/login' => 'home#login'
+  match '/logout' => 'home#logout'
+  match '/welcome' => 'home#welcome'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
