@@ -1,3 +1,3 @@
-APP_ID= '123456789' # please change!
-APP_SECRET= '1b2n3n5n6n7m8m9n9m0m' # please change!
-SITE_URL = 'http://giftcheaters.herokuapp.com/' # please change!
+APP_ID= '309428675901394'
+APP_SECRET= 'bb93a431aa2c57f02f93b6a3a0d7c38b'
+SITE_URL = 'http://giftcheaters.herokuapp.com/'
