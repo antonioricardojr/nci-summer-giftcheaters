@@ -1,11 +1,10 @@
 NciSummerGiftcheaters::Application.routes.draw do
-
-  root :to => 'home#index'
- 
-  match '/index' => 'home#index'
-  match '/login' => 'home#login'
   # The priority is based upon order of creation:
   # first created -> highest priority.
+  root :to => 'home#index'
+  
+  match '/index' => 'home#index'
+  match '/login' => 'home#login'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
