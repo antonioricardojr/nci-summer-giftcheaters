@@ -12,6 +12,8 @@ NciSummerGiftcheaters::Application.routes.draw do
 
   match '/amazon/:item' => 'amazon#item_search'
 
+  match '/privacypolicy', :to => redirect('/documents/privacypolicy.html')
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
