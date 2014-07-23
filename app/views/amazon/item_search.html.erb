@@ -1,0 +1,10 @@
+<p>Total Pages: <%=	@res.total_pages %> </p>
+<p>Total Results: <%=	@res.total_results %> </p>
+<p>First Item: <%= @res.first_item %></p>
+
+
+<%	@res.items.each do |item| %>
+<p> <%=		item.get('ItemAttributes/Title') %> </p>
+<p> <%=		item.get_element('ItemAttributes') %> </p>
+<p> <%=		item.get_hash('ItemAttributes') %> </p>
+<%	end %>
