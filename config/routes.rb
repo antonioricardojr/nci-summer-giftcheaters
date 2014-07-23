@@ -8,6 +8,8 @@ NciSummerGiftcheaters::Application.routes.draw do
   match '/logout' => 'home#logout'
   match '/welcome' => 'home#welcome'
 
+  match '/amazon/:item' => 'amazon#item_search'
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
