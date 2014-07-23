@@ -28,7 +28,7 @@ class HomeController < ApplicationController
     #########################################################
 
     def login
-    	session[:oauth] = Koala::Facebook::OAuth.new(APP_ID, APP_SECRET, SITE_URL + "/")
+    	session[:oauth] = Koala::Facebook::OAuth.new(APP_ID, APP_SECRET, SITE_URL)
     	@auth_url =  session[:oauth].url_for_oauth_code(:permissions=>"email user_friends")
 
 

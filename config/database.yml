@@ -17,7 +17,6 @@ development:
   encoding: unicode
   database: nci-summer-giftcheaters_development
   pool: 5
-  timeout: 5000
 
   # Connect on a TCP socket. Omitted by default since the client uses a
   # domain socket that doesn't need configuration. Windows does not have
@@ -42,11 +41,9 @@ test:
   encoding: unicode
   database: nci-summer-giftcheaters_test
   pool: 5
-  timeout: 5000
 
 production:
   adapter: postgresql
   encoding: unicode
   database: nci-summer-giftcheaters_production
   pool: 5
-  timeout: 5000
