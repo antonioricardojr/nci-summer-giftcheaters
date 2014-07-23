@@ -1,3 +1,4 @@
+require 'koala'
 class HomeController < ApplicationController
 
 	def index  
@@ -41,5 +42,8 @@ class HomeController < ApplicationController
     end
 
     def welcome
+        @api = Koala::Facebook::API.new(session[:access_token])
+        @user_profile = @api.get_object("me")
+
     end
 end

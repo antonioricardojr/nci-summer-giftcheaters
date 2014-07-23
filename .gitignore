@@ -14,5 +14,6 @@
 /log/*.log
 /tmp
 
-# Ignore the database config, only used by user malu
-/myapp/config/database.yml
+# Ignore the configs, malu
+/config/database.yml
+/config/initializers/constants.rb
