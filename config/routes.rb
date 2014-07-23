@@ -7,6 +7,8 @@ NciSummerGiftcheaters::Application.routes.draw do
   match '/login' => 'home#login'
   match '/logout' => 'home#logout'
   match '/welcome' => 'home#welcome'
+  match '/about' => 'home#about'
+  match '/contact' => 'home#contact'
 
   match '/amazon/:item' => 'amazon#item_search'
 

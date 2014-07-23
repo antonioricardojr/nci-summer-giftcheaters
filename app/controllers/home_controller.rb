@@ -45,7 +45,11 @@ class HomeController < ApplicationController
         @api = Koala::Facebook::API.new(session[:access_token])
         @user_profile = @api.get_object("me")
         @friends = @api.get_connections(@user_profile["id"], "friends?fields=id,name,link")
-        
+    end
 
+    def about
+    end
+
+    def contact
     end
 end
