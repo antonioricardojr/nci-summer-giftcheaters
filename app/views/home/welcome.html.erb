@@ -1,4 +1,6 @@
-
+<% @friends.each do |f| %>
+- <%= link_to f["name"], f["link"], :target => '_blank'%>
+-<% end -%>
 
 <div class="hero-unit">
   <h1>Welcome</h1>
@@ -22,7 +24,7 @@
   <!-- List group -->
   <ul class="list-group">
     <li class="list-group-item media">
-      
+      <!-- image tag goes here-->
       <div class="media-body">
         <h4 class="media-heading">Gemma</h4>
         <p>Birthday on July 8th</p>
@@ -30,7 +32,7 @@
       </div> <!-- /media-body -->       
     </li>
     <li class="list-group-item media">
-      
+      <!-- image tag goes here-->
       <div class="media-body">
         <h4 class="media-heading">Antonio</h4>
         <p>Birthday on July 8th</p>
