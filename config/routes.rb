@@ -12,7 +12,7 @@ NciSummerGiftcheaters::Application.routes.draw do
 
   match '/amazon/:item' => 'amazon#item_search'
 
-  match '/privacypolicy', :to => redirect('/documents/privacypolicy.html')
+  match '/privacypolicy' => 'documents#privacypolicy'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
