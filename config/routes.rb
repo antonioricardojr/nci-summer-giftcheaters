@@ -8,11 +8,14 @@ NciSummerGiftcheaters::Application.routes.draw do
   match '/logout' => 'home#logout'
   match '/welcome' => 'home#welcome'
   match '/about' => 'home#about'
-  match '/contact' => 'home#contact'
+  #match '/contact' => 'home#contact'
 
   match '/amazon/:item' => 'amazon#item_search'
 
   match '/privacypolicy' => 'documents#privacypolicy'
+
+  match 'contact' => 'contact#new', :as => 'contact', :via => :get
+  match 'contact' => 'contact#create', :as => 'contact', :via => :post
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
