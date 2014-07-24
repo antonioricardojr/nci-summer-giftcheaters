@@ -1,26 +1,54 @@
 <%= form_for @message, :url => contact_path do |form| %>
-  <fieldset class="fields">
-    <div class="field">
+<fieldset class="fields hero-unit" align="left">
+  <table>
+    <tr>
+    </tr>
+    
+    <td valign="top">
       <%= form.label :name %>
+    </td>
+    <td valign="top">
       <%= form.text_field :name %>
-    </div>
-    
-    <div class="field">
+    </td>
+
+    <tr>
+    </tr>
+
+    <td valign="top">
       <%= form.label :email %>
+    </td>
+    <td valign="top">
       <%= form.text_field :email %>
-    </div>
-    <div class="field">
+    </td>
+
+    <tr>
+    </tr>
+
+    <td valign="top">
       <%= form.label :subject %>
+    </td>
+    <td valign="top">
       <%= form.text_field :subject %>
-    </div>
-    
-    <div class="field">
-      <%= form.label :body %>
+    </td>
+
+    <tr>
+    </tr>
+
+    <td valign="top">
+    <%= form.label :message %>
+    </td>
+    <td valign="top">
       <%= form.text_area :body %>
-    </div>
+      
+    </td>
+    <td>
+      <fieldset class="actions" valign="left">
+        <%= form.submit "Send" %>
+
+      </fieldset>
+    </td>
+    
   </fieldset>
-  
-  <fieldset class="actions">
-    <%= form.submit "Send" %>
-  </fieldset>
+</table>      
+
 <% end %>
