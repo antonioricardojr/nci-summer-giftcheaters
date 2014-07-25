@@ -15,7 +15,7 @@ module NciSummerGiftcheaters
     config.action_mailer.smtp_settings = {
         :address              => "smtp.gmail.com",
         :port                 => 587,
-        :domain               => "http://giftcheaters.herokuapp.com/",
+        :domain               => "http://localhost:3000/",
         :user_name            => "giftcheaters.nci@gmail.com",
         :password             => "PutzF4c3$",
         :authentication       => :plain,
@@ -23,7 +23,7 @@ module NciSummerGiftcheaters
     }
 
     config.action_mailer.default_url_options = {
-      :host => "http://giftcheaters.herokuapp.com/"
+      :host => "http://localhost:3000/"
   }
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
