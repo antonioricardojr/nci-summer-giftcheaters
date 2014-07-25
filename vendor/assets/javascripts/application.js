@@ -14,4 +14,6 @@
 //= require jquery_ujs
 //= require_tree .
 //= require bootstrap.min
-
+//= require jquery-1.11.0
+//= require freelancer
+//= require contact_me
