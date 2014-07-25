@@ -1,7 +1,158 @@
-	<div class="jumbotron">
-		<h1>GiftCheaters</h1>
-		<p class="lead">The easiest way to choose gifts for your friends using their Facebook interests.</p>
-		<p><button class="btn btn-facebook" onClick="window.location.href='/login'"><i class="fa fa-facebook"></i> | Connect with Facebook
-		</button ></p>
+<% provide(:title, 'Home') %>
+<!-- Header -->
+<header>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12">
+				<%= image_tag("logo.png" , alt: "Logo", class: "img-responsive", width: "250px", heigh: "212px") %> 
+				<div class="intro-text">
+					<span class="name">GiftCheaters</span>
+					<hr class="star-light">
+					<span class="skills">The easiest way to choose gifts for your friends using their Facebook interests.</span>
+					<br><br>
+					<button class="btn-facebook" onClick="window.location.href='/login'"><i class="fa fa-facebook"></i> | Connect with Facebook
+					</button >
+				</div>
+			</div>
+		</div>
 	</div>
-	 <%= @user_profile %>
+</header>
+	
+		
+<!-- Portfolio Grid Section -->
+<section id="portfolio">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h2>Do you need help finding a gift for a friend?</h2>
+				<hr class="star-primary">
+				<h3>We can help you</h3>
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-sm-4 portfolio-item">
+				<h4>Connect with your Facebook</h4>
+				<a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
+					<div class="caption">
+						<div class="caption-content">
+							<i class="fa fa-search-plus fa-3x"></i>
+						</div>
+					</div>
+					<%= image_tag("promo/steps1.png" , alt: "Step1", class: "img-responsive", width: "250px", heigh: "212px") %> 
+				</a>
+			</div>
+			<div class="col-sm-4 portfolio-item">
+				<h4>Select your friend</h4>
+				<a href="#portfolioModal2" class="portfolio-link" data-toggle="modal">
+					<div class="caption">
+						<div class="caption-content">
+							<i class="fa fa-search-plus fa-3x"></i>
+						</div>
+					</div>
+					<%= image_tag("promo/steps2.png" , alt: "Step2", class: "img-responsive", width: "250px", heigh: "212px") %>
+				</a>
+			</div>
+			<div class="col-sm-4 portfolio-item">
+			<h4>We will learn what he likes</h4>
+				<a href="#portfolioModal3" class="portfolio-link" data-toggle="modal">
+					<div class="caption">
+						<div class="caption-content">
+							<i class="fa fa-search-plus fa-3x"></i>
+						</div>
+					</div>
+					<%= image_tag("promo/steps3.png" , alt: "Step3", class: "img-responsive", width: "250px", heigh: "212px") %>
+				</a>
+			</div>
+			<div class="col-sm-4 portfolio-item">
+			<h4>And present to you options for gifts on Amazon</h4>
+				<a href="#portfolioModal4" class="portfolio-link" data-toggle="modal">
+					<div class="caption">
+						<div class="caption-content">
+							<i class="fa fa-search-plus fa-3x"></i>
+						</div>
+					</div>
+					<%= image_tag("promo/steps4.png" , alt: "Step4", class: "img-responsive", width: "250px", heigh: "212px") %>
+				</a>
+			</div>
+			<div class="col-sm-4 portfolio-item">
+			<h4>Then you just have to pick an option and buy it</h4>
+				<a href="#portfolioModal5" class="portfolio-link" data-toggle="modal">
+					<div class="caption">
+						<div class="caption-content">
+							<i class="fa fa-search-plus fa-3x"></i>
+						</div>
+					</div>
+					<%= image_tag("promo/steps5.png" , alt: "Step5", class: "img-responsive", width: "250px", heigh: "212px") %>
+				</a>
+			</div>
+			<div class="col-sm-4 portfolio-item">
+			<h4>And your friend will love the gift!</h4>
+				<a href="#portfolioModal6" class="portfolio-link" data-toggle="modal">
+					<div class="caption">
+						<div class="caption-content">
+							<i class="fa fa-search-plus fa-3x"></i>
+						</div>
+					</div>
+					<%= image_tag("promo/steps6.png" , alt: "Step6", class: "img-responsive", width: "250px", heigh: "212px") %>
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
+
+<%= render( :partial => 'home/about.html', :formats => [:html]) %>
+
+<!-- Contact Section -->
+<section id="contact">
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
+				<h2>Contact Me</h2>
+				<hr class="star-primary">
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-lg-8 col-lg-offset-2">
+				<!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
+				<!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
+				<form name="sentMessage" id="contactForm" novalidate>
+					<div class="row control-group">
+						<div class="form-group col-xs-12 floating-label-form-group controls">
+							<label>Name</label>
+							<input type="text" class="form-control" placeholder="Name" id="name" required data-validation-required-message="Please enter your name.">
+							<p class="help-block text-danger"></p>
+						</div>
+					</div>
+					<div class="row control-group">
+						<div class="form-group col-xs-12 floating-label-form-group controls">
+							<label>Email Address</label>
+							<input type="email" class="form-control" placeholder="Email Address" id="email" required data-validation-required-message="Please enter your email address.">
+							<p class="help-block text-danger"></p>
+						</div>
+					</div>
+					<div class="row control-group">
+						<div class="form-group col-xs-12 floating-label-form-group controls">
+							<label>Phone Number</label>
+							<input type="tel" class="form-control" placeholder="Phone Number" id="phone" required data-validation-required-message="Please enter your phone number.">
+							<p class="help-block text-danger"></p>
+						</div>
+					</div>
+					<div class="row control-group">
+						<div class="form-group col-xs-12 floating-label-form-group controls">
+							<label>Message</label>
+							<textarea rows="5" class="form-control" placeholder="Message" id="message" required data-validation-required-message="Please enter a message."></textarea>
+							<p class="help-block text-danger"></p>
+						</div>
+					</div>
+					<br>
+					<div id="success"></div>
+					<div class="row">
+						<div class="form-group col-xs-12">
+							<button type="submit" class="btn btn-success btn-lg">Send</button>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>

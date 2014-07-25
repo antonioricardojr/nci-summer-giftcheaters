@@ -1,19 +1,19 @@
 NciSummerGiftcheaters::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
-  root :to => 'home#index'
+  root :to => 'home#index', id: 'home'
   
   match '/index' => 'home#index'
   match '/login' => 'home#login'
-  match '/logout' => 'home#logout'
-  match '/welcome' => 'home#welcome'
-  match '/about' => 'home#about'
+  match '/logout' => 'home#logout', id: 'logout'
+  match '/welcome' => 'home#welcome', id: 'welcome'
+  match '/about' => 'home#about', id: 'about'
 
   match '/amazon/:item' => 'amazon#item_search'
 
-  match '/privacypolicy' => 'documents#privacypolicy'
+  match '/privacypolicy' => 'documents#privacypolicy', id: 'privacy'
 
-  match 'contact' => 'contact#new', :as => 'contact', :via => :get
+  match 'contact' => 'contact#new', :as => 'contact', :via => :get, id: 'contact'
   match 'contact' => 'contact#create', :as => 'contact', :via => :post
 
   # Sample of regular route:

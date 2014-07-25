@@ -9,7 +9,44 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-	<div class="container-narrow">
+	<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top">
+	<div class="container">
+		<!-- Brand and toggle get grouped for better mobile display -->
+		<div class="navbar-header page-scroll">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<%= link_to site_name, site_url, :class => "navbar-brand", :href =>"#page-top" %>
+		</div>
+
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<ul class="nav navbar-nav navbar-right">
+				<li class="<%= 'active' if (current_page?(root_path) ||current_page?(welcome_path)) %>">
+					<%= link_to "Home", root_path %>
+				</li>
+				<li class="page-scroll <%= 'active' if current_page?(about_path) %>">
+					<a href="<%= current_page?(root_path) ? '#about' : about_path %>">About</a>
+				</li>
+				<li class="page-scroll <%= 'active' if current_page?(contact_path) %>">
+					<a href="<%= current_page?(root_path) ? '#contact' : contact_path %>">Contact</a>
+				</li>
+				<!-- melhorar isso testanto se está logado-->
+				<li class="page-scroll <%= 'hidden' if current_page?(welcome_path) %>">
+					<%= link_to "Logout", logout_path %>
+				</li>
+			</ul>
+		</div>
+		<!-- /.navbar-collapse -->
+	</div>
+	<!-- /.container-fluid -->
+</nav>
+
+	<!-- <div class="container-narrow">
 		<div class="header">
 			<ul class="nav nav-pills pull-right">
 				<li class="active"><a href="/">Home</a></li>
@@ -18,16 +55,16 @@
 				<li><a href="/logout">Logout</a></li>
 			</ul>
 			<h3 class="text-muted">GiftCheaters</h3>
-		</div> <!-- /header -->
+		</div> <!-- /header --> 
 
 		<%= yield %>
 
-		<footer class="footer">
+		<!-- <footer class="footer">
 			<p>
 				<a href="http://giftcheaters.herokuapp.com/">GiftCheaters</a>, All Rights Reserved - 
 				<a href="/privacypolicy">Privacy Policy</a>
 			</p>
-		</footer>
+		</footer> -->
 
 	</div> <!-- /container -->
 </body>
