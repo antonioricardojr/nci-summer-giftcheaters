@@ -9,7 +9,7 @@ NciSummerGiftcheaters::Application.routes.draw do
   match '/welcome' => 'home#welcome', id: 'welcome'
   match '/about' => 'home#about', id: 'about'
 
-  match '/amazon/:item' => 'amazon#item_search'
+  match '/amazon' => 'amazon#item_search'
 
   match '/privacypolicy' => 'documents#privacypolicy', id: 'privacy'
 
