@@ -1,52 +1,82 @@
 <% provide(:title, 'Welcome') %>
-<% @friends.each do |f| %>
-- <%= link_to f["name"], f["link"], :target => '_blank'%>
--<% end -%>
-
-<div class="hero-unit">
-  <h1>Welcome</h1>
-  <p class="lead">This is an application that recommends gifts for you to buy based on a choosen friends facebook interests.</p>
-  <!-- mudar esse action! -->
-  <form class="form-inline" role="form" method="get" action="/search">
-    <div class="input-group">
-      <label class="sr-only" for="friendsName">Friend&#39;s Name</label>
-      <input type="text" ame="name" class="form-control" id="friendsName" placeholder="Enter your friend&#39;s name">
-      <span class="input-group-btn">
-        <button type="button submit" class="btn btn-default" >Search</button>
-      </span>
-    </div><!-- /input-group -->
-  </form>
-</div><!-- /hero-unit -->
-
-
-<div class="panel panel-default">
-  <!-- Default panel contents -->
-  <div class="panel-heading">Upcoming Birthdays</div>
-  <!-- List group -->
-  <ul class="list-group">
-    <li class="list-group-item media">
-      <!-- image tag goes here-->
-      <div class="media-body">
-        <h4 class="media-heading">Gemma</h4>
-        <p>Birthday on July 8th</p>
-        <button type="button" class="btn btn-primary">Get a recommendation</button>
-      </div> <!-- /media-body -->       
-    </li>
-    <li class="list-group-item media">
-      <!-- image tag goes here-->
-      <div class="media-body">
-        <h4 class="media-heading">Antonio</h4>
-        <p>Birthday on July 8th</p>
-        <button type="button" class="btn btn-primary">Get a recommendation</button>
-      </div> <!-- /media-body --> 
-    </li>
-    <li class="list-group-item media">
-      
-      <div class="media-body">
-        <h4 class="media-heading">Maria</h4>
-        <p>Birthday on July 8th</p>
-        <button type="button" class="btn btn-primary">Get a recommendation</button>
-      </div> <!-- /media-body --> 
-    </li>
-  </ul>
-</div> <!-- /panel panel-default -->
+<section class="success" id="welcome">
+  <br><br>
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-3 col-lg-offset-1 text-center">
+        <%= image_tag(@user_pic, alt: "Picture of "+@user_profile["name"], class: "img-circle img-thumbnail") %>
+        <p style="margin-top: 15px;">Welcome, <%= @user_profile["name"] %></p>
+      </div>
+      <div class="col-lg-6 text-center">
+        <p>This is an application that recommends gifts for you to buy based on a choosen friends facebook interests.</p>
+        <hr class="star-light">
+        <!-- <hr class="star-primary"> -->
+        <p>To start you can search for an specific friend</p>
+        <!-- mudar esse action! -->
+        <form class="form-inline" role="form" method="get" action="/search">
+          <div class="input-group">
+            <label class="sr-only" for="friendsName">Friend&#39;s Name</label>
+            <span class="input-group-addon"><i class="fa fa-facebook"></i></span>
+            <input type="text" name="name" class="form-control" id="friendsName" placeholder="Enter your friend&#39;s name">
+            <span class="input-group-btn">
+              <button type="button submit" class="btn btn-default" ><i class="fa fa-search"></i></button>
+            </span>
+          </div><!-- /input-group -->
+        </form>
+        <br>
+        <p>Or pick someone with an upcoming birthday</p>
+        <div class="friend-list">
+          <ul class="list-group">
+            <% @friends.each do |f| %>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-lg-3">
+                  <%= image_tag(f["picture"]["data"]["url"] , alt: "Picture of "+f["name"], class: "media-object pull-left img-thumbnail") %>
+                </div>
+                <div class="col-lg-7" style="text-align:left;">
+                  <p><%= link_to f["name"], f["link"], :target => '_blank'%></p>
+                  <p class="friend-item-bday">8th August</p>
+                </div>
+                <div class="col-lg-2">
+                  <br>
+                  <button type="button" class="btn btn-default pull-right"><i class="fa fa-arrow-right"></i></button>
+                </div>
+              </div>
+            </li>
+            <% end -%>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-lg-3">
+                  <%= image_tag("rails.png" , alt: "...", class: "media-object pull-left img-thumbnail") %>
+                </div>
+                <div class="col-lg-7" style="text-align:left;">
+                  <p>Gemma</p>
+                  <p class="friend-item-bday">8th August</p>
+                </div>
+                <div class="col-lg-2">
+                  <br>
+                  <button type="button" class="btn btn-default pull-right"><i class="fa fa-arrow-right"></i></button>
+                </div>
+              </div>
+            </li>
+            <li class="list-group-item">
+              <div class="row">
+                <div class="col-lg-3">
+                  <%= image_tag("rails.png" , alt: "...", class: "media-object pull-left img-thumbnail") %>
+                </div>
+                <div class="col-lg-7" style="text-align:left;">
+                  <p>Maria</p>
+                  <p class="friend-item-bday">8th August</p>
+                </div>
+                <div class="col-lg-2">
+                  <br>
+                  <button type="button" class="btn btn-default pull-right"><i class="fa fa-arrow-right"></i></button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div> <!-- /friend-list -->
+      </div> <!-- /col-lg-6 text-center -->
+    </div> <!-- /row -->
+  </div> <!-- /container -->
+</section>
