@@ -16,6 +16,8 @@ NciSummerGiftcheaters::Application.routes.draw do
   match 'contact' => 'contact#new', :as => 'contact', :via => :get, id: 'contact'
   match 'contact' => 'contact#create', :as => 'contact', :via => :post
 
+  get 'friendsprofile/:id_friend' => 'recommendation#friendsprofile'
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
