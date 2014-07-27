@@ -29,7 +29,7 @@ class HomeController < ApplicationController
 
     def login
     	session[:oauth] = Koala::Facebook::OAuth.new(APP_ID, APP_SECRET, SITE_URL)
-    	@auth_url =  session[:oauth].url_for_oauth_code(:permissions=>"email user_friends")
+    	@auth_url =  session[:oauth].url_for_oauth_code(:permissions=>"email user_friends user_birthday user_likes")
 
 
     	redirect_to @auth_url 
@@ -46,7 +46,8 @@ class HomeController < ApplicationController
         @api = Koala::Facebook::API.new(session[:access_token])
         @user_profile = @api.get_object("me")
         @user_pic = @api.get_picture(@user_profile["id"], {"type" => "large"} )
-        @friends = @api.get_connections(@user_profile["id"], "friends?fields=id,name,link,picture")
+        @friends = @api.get_connections(@user_profile["id"], "friends?fields=id,name,link,picture,birthday")
+        @friends.sort_by!{ |hsh| hsh["birthday"] }
     end
 
     def about

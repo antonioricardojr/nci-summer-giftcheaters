@@ -27,6 +27,7 @@
         <p>Or pick someone with an upcoming birthday</p>
         <div class="friend-list">
           <ul class="list-group">
+            <!--Colocar uma condição pra só listar a partir do mes e dia atual e definir um limite de 1 mes a partir dessa data -->
             <% @friends.each do |f| %>
             <li class="list-group-item">
               <div class="row">
@@ -35,45 +36,18 @@
                 </div>
                 <div class="col-lg-7" style="text-align:left;">
                   <p><%= link_to f["name"], f["link"], :target => '_blank'%></p>
-                  <p class="friend-item-bday">8th August</p>
+                  <p class="friend-item-bday">
+                    <% bday = f["birthday"].split('/') %>
+                    Birthday on <%= bday[1]+'/'+bday[0] %>
+                  </p>
                 </div>
                 <div class="col-lg-2">
                   <br>
-                  <button type="button" class="btn btn-default pull-right"><i class="fa fa-arrow-right"></i></button>
+                  <a type="button" class="btn btn-default pull-right" href="/friendsprofile/<%= f["id"]%>"><i class="fa fa-arrow-right"></i></a>
                 </div>
               </div>
             </li>
             <% end -%>
-            <li class="list-group-item">
-              <div class="row">
-                <div class="col-lg-3">
-                  <%= image_tag("rails.png" , alt: "...", class: "media-object pull-left img-thumbnail") %>
-                </div>
-                <div class="col-lg-7" style="text-align:left;">
-                  <p>Gemma</p>
-                  <p class="friend-item-bday">8th August</p>
-                </div>
-                <div class="col-lg-2">
-                  <br>
-                  <button type="button" class="btn btn-default pull-right"><i class="fa fa-arrow-right"></i></button>
-                </div>
-              </div>
-            </li>
-            <li class="list-group-item">
-              <div class="row">
-                <div class="col-lg-3">
-                  <%= image_tag("rails.png" , alt: "...", class: "media-object pull-left img-thumbnail") %>
-                </div>
-                <div class="col-lg-7" style="text-align:left;">
-                  <p>Maria</p>
-                  <p class="friend-item-bday">8th August</p>
-                </div>
-                <div class="col-lg-2">
-                  <br>
-                  <button type="button" class="btn btn-default pull-right"><i class="fa fa-arrow-right"></i></button>
-                </div>
-              </div>
-            </li>
           </ul>
         </div> <!-- /friend-list -->
       </div> <!-- /col-lg-6 text-center -->
