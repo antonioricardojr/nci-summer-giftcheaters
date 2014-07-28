@@ -1,11 +1,32 @@
-<p>   asasdsa    </p>
-<p>    asdasdsad   </p>
+<section class="success">
 
-<p> <%= @res.total_results %> </p>
-<p> <%= @res.total_results %> </p>
+	<div class="container">
+		<div class="row">
+			<div class="col-lg-12 text-center">
 
-<p> <%= @name %> </p>
-<%= @res.first_item %>
+					<% @most_relevant_res.each do |item| %>
+						<% item_attributes = item.get_element('ItemAttributes') %>
+						<% title = item_attributes.get('Title') %>
+						<% author = item_attributes.get('Author') %>
+						<% image =  item.get_hash('LargeImage') %> 
+						<div class="col-lg-6 text-center">
+        					<p> <%= @name %></p>	
+							<p>Title: <%= title %> </p>
+							<p><% url = item.get('DetailPageURL') %> </p>
+							<%= link_to image_tag(image['URL'] , class: "img-thumbnail img-thumbnail"), url %> 
 
-<p> ------------------------------ </p>
+							<hr class="star-light"> 
+							
+							
+						</div>
+				<% end %>
 
+
+				
+
+			
+
+		</div>
+	</div>
+
+</section>

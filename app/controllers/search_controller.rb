@@ -24,21 +24,67 @@ def remove_unofficial(name)
 end
 
 
+def define_category(f_category)
+	a_category = "All"
+
+	if f_category == "Movie"
+		a_category = "Video"
+
+	elsif f_category == "Musician/band"
+		a_category = "Music"
+
+	elsif f_category == "Author"
+		a_category = "Books"
+
+	elsif f_category == "Book"
+		a_category = "Books"
+	elsif f_category == "Actor/director"
+		a_category = "Video"
+	end
+	return a_category
+end
+
 
 def item_search
 	
 	@name = remove_unofficial(params[:param2])
+	@category = define_category(params[:param1])
 
 
-	 #@res = Amazon::Ecs.item_search(@name, {:response_group => "Medium"})
-	 @res = Amazon::Ecs.item_search(@name, {:response_group => 'Medium', :sort => 'salesrank', :search_index => @category})
 
+	@res = Amazon::Ecs.item_search(@name, 
+		{:response_group => 'Medium',  
+			:search_index => @category,
+			:country => 'uk'
+			})
 
-	#@res = Amazon::Ecs.item_search(@name, :search_index => params[:param1])
+	@most_relevant_res = firsts_results(@res)
+	
 
 end
 
+
+def firsts_results(results)
+	res = []
+	 if(results.total_results > 5)
+		num_results = 5
+	 else
+	 	num_results = results.total_results
+	end
+
+
+	i = 0
+	
+	results.items.each do |item|
+
+		if(i < num_results)
+			res.push(item)
+			i = i + 1	
+		end
+	end
+
+	return res
 end
 
-
+end
 end
