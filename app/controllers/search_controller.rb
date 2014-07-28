@@ -55,6 +55,7 @@ def item_search
 	@res = Amazon::Ecs.item_search(@name, 
 		{:response_group => 'Medium',  
 			:search_index => @category,
+			:country => 'uk'
 			})
 
 	@most_relevant_res = firsts_results(@res)
