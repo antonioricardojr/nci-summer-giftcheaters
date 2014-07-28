@@ -1,0 +1,13 @@
+<div>
+	<%= @res %>
+	<% @res.items.each do |item| %>
+  
+  <%= item.get('ASIN') %>
+  <%= item.get('ItemAttributes/Title') %>
+
+  <% end %>
+</div>
+
+
+
+

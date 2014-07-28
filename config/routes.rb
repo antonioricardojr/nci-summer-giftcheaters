@@ -9,7 +9,7 @@ NciSummerGiftcheaters::Application.routes.draw do
   match '/welcome' => 'home#welcome', id: 'welcome'
   match '/about' => 'home#about', id: 'about'
 
-  match '/amazon' => 'amazon#item_search'
+  #match '/search' => 'search#item_search'
 
   match '/privacypolicy' => 'documents#privacypolicy', id: 'privacy'
 
@@ -17,6 +17,8 @@ NciSummerGiftcheaters::Application.routes.draw do
   match 'contact' => 'contact#create', :as => 'contact', :via => :post
 
   get 'friendsprofile/:id_friend' => 'recommendation#friendsprofile'
+
+  match "/search/:category" => 'search#item_search'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'

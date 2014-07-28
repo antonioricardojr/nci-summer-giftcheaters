@@ -1,6 +1,6 @@
 require 'amazon/ecs'
 
-class AmazonController < ApplicationController
+class SearchController < ApplicationController
 
 
 
@@ -12,8 +12,8 @@ class AmazonController < ApplicationController
 
 
 def item_search
-	#@res = Amazon::Ecs.item_search("Harry Potter", :country => 'uk')
-	@res = Amazon::Ecs.item_search("Harry Potter", {:response_group => "Medium", :country => 'uk'})
+	
+	@res = Amazon::Ecs.item_search(params[:search], {:response_group => "Medium", :country => 'uk'})
 
 end
 

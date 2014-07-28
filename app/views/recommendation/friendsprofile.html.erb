@@ -10,6 +10,18 @@
 				<p>Those are <%= @friend_profile["gender"]=="female"  ? 'her' : 'his' %> interests, please choose one category to get gift recommendations.</p>
 				<br>
 				<%= @friend_likes%>
+
+				<% @friend_likes.each do |like| %>
+
+					<p>
+						<%= link_to "#{like['category']}" , "/search/#{like['category']}" %>
+					</p>	
+
+				
+				<% end %>
+
+
+
 				<div class="box-wrap">
 					<div class="box-heading">
 						<h4><i class="icon-signal"></i> Colors</h4>
