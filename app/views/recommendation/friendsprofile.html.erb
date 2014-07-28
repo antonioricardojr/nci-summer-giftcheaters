@@ -9,27 +9,7 @@
 				<hr class="star-primary">
 				<p>Those are <%= @friend_profile["gender"]=="female"  ? 'her' : 'his' %> interests, please choose one category to get gift recommendations.</p>
 				<br>
-				<!--<%= @friend_likes%> -->
-
-				<div>
-					<%= @links_categories %>
-					<% @friend_likes_filtered.each do |like| %>
-					<p>
-						<% category = like['category'] %>
-						<% name = like['name'] %>
-
-						<%= link_to "#{category} - #{name} ", 
-						'/search?' + {param1:  "#{category}", param2: "#{name}"}.to_param,
-						method: :post %>
-					</p>	
-					<p> <%= like %> </p>
-
-					<% end %>
-				</div>
-
 				<div id="chartdiv" class="jqplot-pie-series jqplot-data-label"></div>
-
-
 			</div> <!-- /col-lg-6 text-center -->
 			<div class="col-lg-2 text-center"></div>
 		</div> <!-- /row -->
@@ -42,12 +22,6 @@
 <%= render( :partial => 'layouts/jsincludepiechart.html', :formats => [:html]) %>
 
 <script type="text/javascript">
-var redirect = function(url, method) {
-    var form = document.createElement('form');
-    form.method = method;
-    form.action = url;
-    form.submit();
-};
 	$(document).ready(function(){
 		var themeChart = {
 			legend: {
@@ -92,10 +66,9 @@ $('#chartdiv').bind('jqplotDataClick',
 		<% @links_categories.each do |ctg, link| %>
 			if (data[0] == '<%= ctg %>'){
 				link = '<%= link %>';
-			}
+			}	
 		<% end -%>
-		//window.location.href = "http://stackoverflow.com";
-		alert("data = " + data[0] + ' link = ' + link);
+		window.location.href=link;
 	});
 
 </script>
