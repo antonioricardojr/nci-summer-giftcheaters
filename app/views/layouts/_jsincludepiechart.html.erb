@@ -1,13 +1,12 @@
-	<!-- Custom Js from ExtendBootstrap-->
-
-	<%= javascript_include_tag "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"%>
+	<!-- Custom Js from JqPlot-->
+	<!--[if lt IE 9]><script language="javascript" type="text/javascript" src="excanvas.js"></script><![endif]-->
+	
+	<!-- jQuery Version 1.11.0, it has to be 1.4.3+ -->
+	<%= javascript_include_tag "jquery-1.11.0" %>
 
 	<%= javascript_include_tag "bootstrap.min" %>
-	<%= javascript_include_tag "extendbootstrap/jquery-ui-1.10.3.custom.min" %>
-
-	<%= javascript_include_tag "extendbootstrap/jquery.flot.min" %>
-	<%= javascript_include_tag "extendbootstrap/jquery.flot.pie.min" %>
-	<%= javascript_include_tag "js/flot/jquery.flot.resize.min" %>
+	<%= javascript_include_tag "jqplot/jquery.jqplot.min" %>
+	<%= javascript_include_tag "jqplot/plugins/jqplot.pieRenderer.min" %>
 
 	
 	
