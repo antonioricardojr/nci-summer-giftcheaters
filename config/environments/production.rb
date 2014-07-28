@@ -1,7 +1,8 @@
 NciSummerGiftcheaters::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
-  config.assets.precompile += %w( jquery-1.11.1.min.js bootstrap.min.js cbpAnimatedHeader.min.js)
+  config.assets.precompile += %w( jquery-1.11.1.min.js bootstrap.min.js cbpAnimatedHeader.min.js
+    classie.js cbpAnimatedHeader.js jqBootstrapValidation.js contact_me.js freelancer.js)
 
   # Code is not reloaded between requests
   config.cache_classes = true
