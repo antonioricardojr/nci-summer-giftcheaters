@@ -34,7 +34,13 @@
 					<div>
 			<% @friend_likes_filtered.each do |like| %>
  					<p>
- 						<%= link_to "#{like['category']}" , "/search/#{like['category']}" %>
+ 						
+ 						<% category = like['category'] %>
+ 						<% name = like['name'] %>
+
+ 						<%= link_to "#{category} - #{name} ", 
+ 						'/search?' + {param1:  "#{category}", param2: "#{name}"}.to_param,
+ 						 method: :post %>
  					</p>	
  					<p> <%= like %> </p>
  				

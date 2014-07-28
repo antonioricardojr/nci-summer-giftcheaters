@@ -10,10 +10,31 @@ class SearchController < ApplicationController
 		options[:AWS_secret_key] = 'dIQSfVEZM/6irJuzHrNqCCAyzvd/kCU0fL4rnMES'
 
 
+# This method removes the word "Unofficial" from the name of like pages. #
+def remove_unofficial(name)
+	name = params[:param2]
+	l_name = name.partition(" ")
+	l_name[0].clear
+	name = ""
+	l_name.each do |word|
+		name += word
+	end
+	return name
+
+end
+
+
 
 def item_search
 	
-	@res = Amazon::Ecs.item_search(params[:search], {:response_group => "Medium", :country => 'uk'})
+	@name = remove_unofficial(params[:param2])
+
+
+	 #@res = Amazon::Ecs.item_search(@name, {:response_group => "Medium"})
+	 @res = Amazon::Ecs.item_search(@name, {:response_group => 'Medium', :sort => 'salesrank', :search_index => @category})
+
+
+	#@res = Amazon::Ecs.item_search(@name, :search_index => params[:param1])
 
 end
 
