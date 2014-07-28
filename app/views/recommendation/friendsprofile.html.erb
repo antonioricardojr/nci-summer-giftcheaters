@@ -31,7 +31,21 @@
 						actdircs.push(like["id"] => like["name"])
 						end %>				
 						<% end %>
+					<div>
+			<% @friend_likes_filtered.each do |like| %>
+ 					<p>
+ 						
+ 						<% category = like['category'] %>
+ 						<% name = like['name'] %>
 
+ 						<%= link_to "#{category} - #{name} ", 
+ 						'/search?' + {param1:  "#{category}", param2: "#{name}"}.to_param,
+ 						 method: :post %>
+ 					</p>	
+ 					<p> <%= like %> </p>
+ 				
+ 				<% end %>
+ 			</div>
 
 						<div id="piechart-placeholder"></div>
 
@@ -40,6 +54,9 @@
 				</div> <!-- /row -->
 			</div> <!-- /container -->
 		</section>
+
+			
+
 
 		<%= render( :partial => 'layouts/jsincludepiechart.html', :formats => [:html]) %>
 

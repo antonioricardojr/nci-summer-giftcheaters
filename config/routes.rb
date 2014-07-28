@@ -18,7 +18,7 @@ NciSummerGiftcheaters::Application.routes.draw do
 
   get 'friendsprofile/:id_friend' => 'recommendation#friendsprofile'
 
-  match "/search/:category" => 'search#item_search'
+  match "/search" => 'search#item_search'
 
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
