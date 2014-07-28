@@ -2,7 +2,7 @@ require 'amazon/ecs'
 
 class SearchController < ApplicationController
 
-
+NUM_RESULTS = 6
 
 	Amazon::Ecs.configure do |options|
 		options[:associate_tag] = 'blablabla'
@@ -55,7 +55,7 @@ def item_search
 	@res = Amazon::Ecs.item_search(@name, 
 		{:response_group => 'Medium',  
 			:search_index => @category,
-			:country => 'uk'
+			:country => 'us'
 			})
 
 	@most_relevant_res = firsts_results(@res)
@@ -66,8 +66,8 @@ end
 
 def firsts_results(results)
 	res = []
-	 if(results.total_results > 5)
-		num_results = 5
+	 if(results.total_results > NUM_RESULTS)
+		num_results = 6
 	 else
 	 	num_results = results.total_results
 	end
