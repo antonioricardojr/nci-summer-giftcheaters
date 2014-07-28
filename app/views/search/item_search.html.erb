@@ -4,27 +4,32 @@
 		<div class="row">
 			<div class="col-lg-12 text-center">
 
-					<% @most_relevant_res.each do |item| %>
-						<% item_attributes = item.get_element('ItemAttributes') %>
-						<% title = item_attributes.get('Title') %>
-						<% author = item_attributes.get('Author') %>
-						<% image =  item.get_hash('LargeImage') %> 
-						<div class="col-lg-6 text-center">
-        					<p> <%= @name %></p>	
-							<p>Title: <%= title %> </p>
-							<p><% url = item.get('DetailPageURL') %> </p>
-							<%= link_to image_tag(image['URL'] , class: "img-thumbnail img-thumbnail"), url %> 
+				<%counter = 0 %>
+				<% @most_relevant_res.each do |item| %>
+				<% item_attributes = item.get_element('ItemAttributes') %>
+				<% title = item_attributes.get('Title') %>
+				<% author = item_attributes.get('Author') %>
+				<% image =  item.get_hash('LargeImage') %> 
+				<% if counter.even? %>
+				<div class="row">
+					<% end %>
+					<div class="col-lg-6 text-center">
+						<p> <%= @name %></p>	
+						<p>Title: <%= title %> </p>
+						<p><% url = item.get('DetailPageURL') %> </p>
+						<%= link_to image_tag(image['URL'] , class: "img-thumbnail img-thumbnail"), url %> 
 
-							<hr class="star-light"> 
-							
-							
-						</div>
+						<hr class="star-light"> 
+
+					</div>
+					<% if counter.odd? %>
+
+				</div>
+					<% end %>
+				<% counter = counter + 1 %>
 				<% end %>
 
-
-				
-
-			
+			</div>
 
 		</div>
 	</div>
