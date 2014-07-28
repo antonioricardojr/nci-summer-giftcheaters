@@ -37,8 +37,10 @@
                 <div class="col-lg-7" style="text-align:left;">
                   <p><%= link_to f["name"], f["link"], :target => '_blank'%></p>
                   <p class="friend-item-bday">
-                    <% bday = f["birthday"].split('/') %>
-                    Birthday on <%= bday[1]+'/'+bday[0] %>
+                    <% if f["birthday"] %>
+                      <% bday = f["birthday"].split('/') %>
+                      Birthday on <%= bday[1]+'/'+bday[0] %>
+                    <% end -%>
                   </p>
                 </div>
                 <div class="col-lg-2">
