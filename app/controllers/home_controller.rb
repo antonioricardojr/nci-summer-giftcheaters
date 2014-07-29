@@ -1,4 +1,5 @@
 require 'koala'
+require 'date'
 class HomeController < ApplicationController
 
 	def index  
@@ -52,6 +53,7 @@ class HomeController < ApplicationController
         @user_pic = @api.get_picture(@user_profile["id"], {"type" => "large"} )
         @friends = @api.get_connections(@user_profile["id"], "friends?fields=id,name,link,picture,birthday")
         @friends.sort_by!{ |hsh| hsh["birthday"] }
+        @today = Date.today
     end
 
     def about

@@ -12,8 +12,7 @@
         <hr class="star-light">
         <!-- <hr class="star-primary"> -->
         <p>To start you can search for an specific friend</p>
-        <!-- mudar esse action! -->
-        <form class="form-inline" role="form" method="get" action="/search">
+        <form class="form-inline" role="form" method="get">
           <div class="input-group">
             <label class="sr-only" for="friendsName">Friend&#39;s Name</label>
             <span class="input-group-addon"><i class="fa fa-facebook"></i></span>
@@ -25,28 +24,33 @@
         <p>Or pick someone with an upcoming birthday</p>
         <div class="friend-list">
           <ul class="list-group">
-            <!--Colocar uma condição pra só listar a partir do mes e dia atual e definir um limite de 1 mes a partir dessa data -->
+             <!-- in the future we shoul test the variable friends for paging
+                 @friends' type is Koala::Facebook::API::GraphCollection-->
             <% @friends.each do |f| %>
-            <li class="list-group-item">
-              <div class="row">
-                <div class="col-lg-3">
-                  <%= image_tag(f["picture"]["data"]["url"] , alt: "Picture of "+f["name"], class: "media-object pull-left img-thumbnail") %>
-                </div>
-                <div class="col-lg-7" style="text-align:left;">
-                  <p><%= link_to f["name"], f["link"], :target => '_blank'%></p>
-                  <p class="friend-item-bday">
-                    <% if f["birthday"] %>
-                      <% bday = f["birthday"].split('/') %>
-                      Birthday on <%= bday[1]+'/'+bday[0] %>
-                    <% end -%>
-                  </p>
-                </div>
-                <div class="col-lg-2">
-                  <br>
-                  <a type="button" class="btn btn-default pull-right" href="/friendsprofile/<%= f["id"]%>"><i class="fa fa-arrow-right"></i></a>
-                </div>
-              </div>
-            </li>
+              <% bday = f["birthday"].split('/') %>
+              <% if @today.month == bday[0].to_i || @today.next_month.month ==  bday[0].to_i %>
+                <% if !(@today.month == bday[0].to_i && @today.day < bday[1].to_i) %>
+                <li class="list-group-item">
+                  <div class="row">
+                    <div class="col-lg-3">
+                      <%= image_tag(f["picture"]["data"]["url"] , alt: "Picture of "+f["name"], class: "media-object pull-left img-thumbnail") %>
+                    </div>
+                    <div class="col-lg-7" style="text-align:left;">
+                      <p><%= link_to f["name"], f["link"], :target => '_blank'%></p>
+                      <p class="friend-item-bday">
+                        <% if f["birthday"] %>
+                          Birthday on <%= bday[1]+'/'+bday[0] %>
+                        <% end -%>
+                      </p>
+                    </div>
+                    <div class="col-lg-2">
+                      <br>
+                      <a type="button" class="btn btn-default pull-right" href="/friendsprofile/<%= f["id"]%>"><i class="fa fa-arrow-right"></i></a>
+                    </div>
+                  </div>
+                </li>
+                <% end -%>
+              <% end -%>
             <% end -%>
           </ul>
         </div> <!-- /friend-list -->
