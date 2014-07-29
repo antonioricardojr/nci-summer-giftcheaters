@@ -13,7 +13,11 @@ class HomeController < ApplicationController
         begin
             @user_profile = @api.get_object("me")
             #render :file => '/home/welcome'
-            redirect_to '/welcome'
+            if flash[:notice]
+                redirect_to '/welcome', :flash => {:notice => flash[:notice]}
+            else
+                redirect_to '/welcome'
+            end
         rescue Exception=>ex
             puts ex.message
             #if user is not logged in and an exception is caught, redirect to the page where logging in is requested

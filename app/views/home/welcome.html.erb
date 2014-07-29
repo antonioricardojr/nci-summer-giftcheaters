@@ -17,12 +17,10 @@
           <div class="input-group">
             <label class="sr-only" for="friendsName">Friend&#39;s Name</label>
             <span class="input-group-addon"><i class="fa fa-facebook"></i></span>
-            <input type="text" name="name" class="form-control" id="friendsName" placeholder="Enter your friend&#39;s name">
-            <span class="input-group-btn">
-              <button type="button submit" class="btn btn-default" ><i class="fa fa-search"></i></button>
-            </span>
-          </div><!-- /input-group -->
+            <input type="text" name="name" class="form-control" id="friendsName" placeholder="Enter your friend&#39;s name" size="40">
+          </div>
         </form>
+
         <br>
         <p>Or pick someone with an upcoming birthday</p>
         <div class="friend-list">
@@ -58,3 +56,17 @@
 </section>
 
 <%= render( :partial => 'layouts/jsincludesnormal.html', :formats => [:html]) %>
+<script>
+var availableTags = [
+    <% @friends.each do |friend| %>
+          { label: '<%= friend["name"] %>' , the_link: '/friendsprofile/<%= friend["id"] %>' },
+    <% end -%>
+    ];
+$( "#friendsName" ).autocomplete({
+      source: availableTags,
+      select:function(e,ui) { 
+      location.href = ui.item.the_link;
+    //  console.log(ui.item.the_link);
+}
+});
+</script>
