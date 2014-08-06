@@ -68,6 +68,7 @@ GEM
     multipart-post (1.2.0)
     nokogiri (1.6.2.1)
       mini_portile (= 0.6.0)
+    papercavalier-ruby-aaws (0.8.1)
     pg (0.17.1)
     polyglot (0.3.5)
     rack (1.4.5)
@@ -125,6 +126,7 @@ DEPENDENCIES
   font-awesome-rails
   jquery-rails
   koala (= 1.3.0)
+  papercavalier-ruby-aaws (~> 0.8.1)
   pg
   rails (= 3.2.13)
   sass-rails (~> 3.2.3)

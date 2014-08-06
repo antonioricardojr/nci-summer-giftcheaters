@@ -1,4 +1,9 @@
 require 'amazon/ecs'
+require 'amazon/aws'
+require 'amazon/aws/search'
+
+ include Amazon::AWS
+ include Amazon::AWS::Search
 
 class SearchController < ApplicationController
 
@@ -8,6 +13,10 @@ NUM_RESULTS = 6
 		options[:associate_tag] = 'blablabla'
 		options[:AWS_access_key_id] = 'AKIAJRKRRNB5DXRVZYWQ'
 		options[:AWS_secret_key] = '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'
+
+	ASSOCIATES_ID = "blabla"
+  	KEY_ID = 'AKIAJRKRRNB5DXRVZYWQ'
+  	req = Request.new(KEY_ID, ASSOCIATES_ID, 'us', false)
 
 
 # This method removes the word "Unofficial" from the name of like pages. #
@@ -59,9 +68,20 @@ def item_search
 			})
 
 	@most_relevant_res = firsts_results(@res)
+
+	@first_res = first_result(@most_relevant_res)	
 	
+	asin = @first_res.get('ASIN')
+
+	@sl = Amazon::AWS::SimilarityLookup.new(asin.chars) #the .chars is required because of the incompatibility 
+													   # in the ruby versions.
 
 end
+
+def first_result(res)
+	return res[0]
+end
+
 
 
 def firsts_results(results)
